@@ -1,0 +1,27 @@
+{% extends "account/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<img src="{% static 'account/super_market.jpg' %}" width=500 align=right style="border-radius: 50%;">
+
+<br><br><br>    
+<p style = "font-family:Montserrat; font-size: 70px; margin-left: 100px;">
+  <b>Super Market Automation Software</b>
+  
+  <br>
+  {% if not user.is_authenticated %}
+  <center>
+    <form style="display: inline;" action = "{% url 'account-login'%}">
+      <button type="submit" class="btn-lg btn-primary">Login</button>
+    </form>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <form style="display:inline;" action = "{% url 'account-register'%}">
+      <button type="submit" class="btn-lg btn-primary">Register</button>
+    </form>
+  </center>
+  {% endif %}
+</p>
+
+{% endblock %}
